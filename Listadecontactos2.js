@@ -60,3 +60,18 @@ borrarContacto(9);
 
 console.log(agenda);
 console.log(agenda.contactos[0].ubicacion);
+
+//**//FUNCION ACTUALIZAR CONTACTO
+let actualizarContacto = (lista, id, nuevaInfo) => {
+  const indice = lista.contactos.findIndex((contacto) => contacto.id === id);
+  if (indice !== -1) {
+    agenda.contactos[indice] = { ...lista.contactos[indice], ...nuevaInfo };
+    console.log(`El id numero '${id}' ha sido actualizado.`);
+  } else {
+    console.log(`No se econtro ningún contacto con ese id ${id}.`);
+  }
+};
+
+const nuevaInfo = { nombre: "Gabriel", apellido: "Garcia Marquez", id: 7 };
+actualizarContacto(agenda, 5455, nuevaInfo);
+console.log(agenda.contactos);
